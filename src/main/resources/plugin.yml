@@ -10,12 +10,12 @@ commands:
     permission: consolechat.chat
     permission-message: 你没有权限执行此命令
   setconsoler:
-  	description: 设置当前后台使用者
-  	usage: /<command> <username>
-  	permission: consolechat.setconsoler
+    description: 设置当前后台使用者
+    usage: /<command> <username>
+    permission: consolechat.setconsoler
     permission-message: 你没有权限执行此命令
   getconsoler:
-  	description: 查看已设置的当前后台使用者
-  	usage: /<command>
-  	permission: consolechat.getconsoler
+    description: 查看已设置的当前后台使用者
+    usage: /<command>
+    permission: consolechat.getconsoler
     permission-message: 你没有权限执行此命令
