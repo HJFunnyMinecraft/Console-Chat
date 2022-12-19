@@ -1,5 +1,5 @@
 name: ConsoleChat
-version: 1.0.2
+version: 1.0.3
 main: org.eu.codezhangborui.consolechat.ConsoleChat
 author: CodeZhangBorui
 description: 优化在后台终端的聊天信息

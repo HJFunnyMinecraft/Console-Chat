@@ -42,20 +42,19 @@ public class ConsoleChat extends JavaPlugin {
 				sender.sendMessage("用法：/cc <信息>");
 				return true;
 			}
-			if(args.length > 2) {
-				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
-				sender.sendMessage("用法：/cc <信息>");
-				return true;
-			}
 			if(consoler == "") {
 				sender.sendMessage("§b[ConsoleChat]§r §c你还没有声明你的身份！请使用 /setconsoler <名称> 来设置你的身份。");
 				return true;
 			}
+			String mess = "";
+			for(int i = 0; i < args.length; i++) {
+				mess = mess + args[i] + " ";
+			}
 			Bukkit.getServer().dispatchCommand(
 				Bukkit.getConsoleSender(),
-				"tellraw @a \"<§b" + consoler + "§r> " + args[0] + "\""
+				"tellraw @a \"<§b" + consoler + "§r> " + mess + "\""
 			);
-			say("<§b" + consoler + "§r> " + args[0]);
+			say("<§b" + consoler + "§r> " + mess);
 			return true;
 		}
 		if(command.getName().equalsIgnoreCase("setconsoler")) {
@@ -68,7 +67,7 @@ public class ConsoleChat extends JavaPlugin {
 				sender.sendMessage("用法：setconsoler <名称>");
 				return true;
 			}
-			if(args.length > 2) {
+			if(args.length > 1) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
 				sender.sendMessage("用法：/setconsoler <名称>");
 				return true;
@@ -78,7 +77,7 @@ public class ConsoleChat extends JavaPlugin {
 			return true;
 		}
 		if(command.getName().equalsIgnoreCase("getconsoler")) {
-			if(args.length > 1) {
+			if(args.length > 0) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
 				sender.sendMessage("用法：/getconsoler");
 				return true;
@@ -95,7 +94,7 @@ public class ConsoleChat extends JavaPlugin {
 				sender.sendMessage("§b[ConsoleChat]§r §c此命令只能在控制台使用！");
 				return true;
 			}
-			if(args.length > 1) {
+			if(args.length > 0) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
 				sender.sendMessage("用法：/delconsoler");
 				return true;
