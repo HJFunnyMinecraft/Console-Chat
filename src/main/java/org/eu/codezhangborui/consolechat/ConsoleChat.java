@@ -16,7 +16,7 @@ public class ConsoleChat extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		say("§b[ConsoleChat]§r Plugin by CodeZhangBorui, Version 1.0.0");
+		say("§b[ConsoleChat]§r Plugin by CodeZhangBorui, Version 1.0.3");
 		say("§b[ConsoleChat]§r 注册指令……");
 		Bukkit.getPluginCommand("cc").setExecutor(this);
 		Bukkit.getPluginCommand("setconsoler").setExecutor(this);
