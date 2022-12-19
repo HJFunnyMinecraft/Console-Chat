@@ -19,7 +19,9 @@ public class ConsoleChat extends JavaPlugin {
 		say("§b[ConsoleChat]§r Plugin by CodeZhangBorui, Version 1.0.0");
 		say("§b[ConsoleChat]§r 注册指令……");
 		Bukkit.getPluginCommand("cc").setExecutor(this);
-		Bukkit.getPluginCommand("setconsoler").setExecutor(this);		
+		Bukkit.getPluginCommand("setconsoler").setExecutor(this);
+		Bukkit.getPluginCommand("getconsoler").setExecutor(this);
+		Bukkit.getPluginCommand("delconsoler").setExecutor(this);
 		say("§b[ConsoleChat]§r Console Chat Plugin 启用成功！键入 /setconsoler 开始使用");
 	}
 	
@@ -63,12 +65,12 @@ public class ConsoleChat extends JavaPlugin {
 			}
 			if(args.length < 1) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过少！");
-				sender.sendMessage("用法：/cc <信息>");
+				sender.sendMessage("用法：setconsoler <名称>");
 				return true;
 			}
 			if(args.length > 2) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
-				sender.sendMessage("用法：/cc <信息>");
+				sender.sendMessage("用法：/setconsoler <名称>");
 				return true;
 			}
 			consoler = args[0];
@@ -78,7 +80,7 @@ public class ConsoleChat extends JavaPlugin {
 		if(command.getName().equalsIgnoreCase("getconsoler")) {
 			if(args.length > 1) {
 				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
-				sender.sendMessage("用法：/cc <信息>");
+				sender.sendMessage("用法：/getconsoler");
 				return true;
 			}
 			if(consoler == "") {
@@ -86,6 +88,24 @@ public class ConsoleChat extends JavaPlugin {
 				return true;
 			}
 			sender.sendMessage("§b[ConsoleChat]§r 当前后台使用者：" + consoler);
+			return true;
+		}
+		if(command.getName().equalsIgnoreCase("delconsoler")) {
+			if(sender instanceof Player) {
+				sender.sendMessage("§b[ConsoleChat]§r §c此命令只能在控制台使用！");
+				return true;
+			}
+			if(args.length > 1) {
+				sender.sendMessage("§b[ConsoleChat]§r §c参数过多！");
+				sender.sendMessage("用法：/delconsoler");
+				return true;
+			}
+			if(consoler == "") {
+				sender.sendMessage("§b[ConsoleChat]§r 后台还没有过声明他的身份！");
+				return true;
+			}
+			consoler = "";
+			sender.sendMessage("§b[ConsoleChat]§r 已成功移除当前后台使用者！");
 			return true;
 		}
 		return false;
